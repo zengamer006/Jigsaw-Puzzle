@@ -388,9 +388,9 @@ function dragEnd() {
         // Move back to the pieces pile if incorrect
         turns += 1;
         document.getElementById("turns").innerText = turns;
-        
+
         // Reset the currTile image using the selectedFolder
-        currTile.src = `./${selectedFolder}/${currTile.dataset.pieceNumber}.jpg`; // Correct folder used here
+        currTile.src = `./${selectedFolder}/${currTile.dataset.pieceNumber}.jpg`; // Ensure the original folder is used
     }
 
     // Check if the game is complete after every move
@@ -398,6 +398,14 @@ function dragEnd() {
         isGameComplete = true; // Prevent multiple triggers
         showCompletionScreen(selectedFolder); // Show original image and explanation
     }
+}
+
+function isCorrectPosition(tile, draggedTile) {
+    let tilePosition = Array.prototype.indexOf.call(tile.parentNode.children, tile);
+    let draggedPosition = parseInt(draggedTile.dataset.pieceNumber) - 1; // Get the correct position from data attribute
+
+    // Check if the position of the dragged tile matches the expected position
+    return tilePosition === draggedPosition;
 }
 
 function isCorrectPosition(tile, draggedTile) {
