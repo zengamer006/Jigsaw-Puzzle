@@ -40,9 +40,9 @@ h2 {
 
 /* 4x4 board version */
 #board {
-    width: 323px;
+    width: 330px;
     height: 324px; 
-    border: 2px solid purple;
+    border: 2px solid transparent;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -59,7 +59,7 @@ h2 {
 #pieces {
     width: 1048px;
     height: 160px;
-    border: 2px solid purple;
+    border: 2px solid transparent
 
     margin: 0 auto;
     display: flex;

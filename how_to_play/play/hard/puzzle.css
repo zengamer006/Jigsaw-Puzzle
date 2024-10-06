@@ -39,9 +39,9 @@ h2 {
 }
 
 #board {
-    width: 404px;
+    width: 420px;
     height: 404px;
-    border: 2px solid purple;
+    border: 2px solid transparent;
 
     margin: 0 auto;
     display: flex;
@@ -58,7 +58,7 @@ h2 {
 #pieces {
     width: 1049px;
     height: 163px;
-    border: 2px solid purple;
+    border: 2px solid transparent;
 
     margin: 0 auto;
     display: flex;
