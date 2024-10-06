@@ -444,7 +444,7 @@ function showQuestion(index) {
 
             if (i === question.correct) {
                 // Change the color of the correct answer to green
-                button.style.backgroundColor = "green";
+                button.style.backgroundColor = "#88E788";
                 button.style.color = "black";
                 button.style.fontFamily = "Comfortaa";
 
