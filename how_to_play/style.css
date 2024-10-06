@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
+
+body {
+    font-family: 'Comfortaa', cursive;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(40, 40, 40, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,10 Q50,0 70,10 L90,30 Q100,50 90,70 L70,90 Q50,100 30,90 L10,70 Q0,50 10,30 Z" fill="rgba(60, 60, 60, 0.3)" /></svg>');
+    background-size: cover, 100px 100px;
+    background-position: center, center;
+    background-repeat: no-repeat, repeat;
+    animation: backgroundShift 30s linear infinite;
+}
+
+@keyframes backgroundShift {
+    0% { background-position: center, 0 0; }
+    100% { background-position: center, 100px 100px; }
+}
+
+.container {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    color: #bb86fc;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.instruction, .tip {
+    background-color: rgba(50, 50, 50, 0.7);
+    border-left: 5px solid #03dac6;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 0 10px 10px 0;
+    transition: transform 0.3s ease;
+}
+
+.instruction:hover, .tip:hover {
+    transform: translateX(5px);
+}
+
+.tip {
+    border-left-color: #cf6679;
+}
+
+h2 {
+    color: #03dac6;
+    margin-top: 0;
+}
+
+.tip h2 {
+    color: #cf6679;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#understood {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #13da8e;
+    color: #121212;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Comfortaa';
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #0ccaaa;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    background-color: #d3a0a0;
+    cursor: not-allowed;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #333;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+.modal-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    background-color: #03dac6;
+    color: #121212;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #02c4a5;
+}

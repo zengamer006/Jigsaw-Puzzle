@@ -1,0 +1,64 @@
+/* General styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Background image for the welcome screen */
+.welcome-screen {
+    background-image: url('assets/background.png'); /* Your background image in the assets folder */
+    background-size: cover; /* Make sure the background covers the whole screen */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    height: 100vh; /* Use viewport height to cover the full screen */
+    width: 100vw; /* Use viewport width to cover the full screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    align-items: center; /* Horizontally center content */
+    position: relative;
+    z-index: 1; /* Ensure it's behind the content */
+}
+
+/* Button container styling */
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    z-index: 2; /* Ensure buttons are above the background */
+}
+
+/* Styling for the image buttons */
+.image-button {
+    background: url('assets/button-image.png') no-repeat center center; /* Your button image in the assets folder */
+    background-size: cover;
+    border: none;
+    width: 230px;
+    height: 100px;
+    cursor: pointer;
+    margin: 20px; /* Adjust margin for spacing between buttons */
+    display: block;
+    z-index: 2; /* Ensure the buttons are in front */
+}
+
+/* Different image for the "How to Play" button */
+#how-to-play-btn {
+    background: url('assets/How_to_play.png') no-repeat center center; /* Your second button image in the assets folder */
+    background-size: cover;
+    width: 316px;
+    height: 101px;
+    z-index: 2;
+}
+
+/* Hover effect for the buttons */
+.image-button:hover {
+    transform: scale(1.1); /* Grows the button slightly when hovered */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Adds a shadow for a floating effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ensures smooth transition */
+}

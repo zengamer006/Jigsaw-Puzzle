@@ -1,0 +1,185 @@
+/* Body Styling */
+body {
+    font-family: 'Comfortaa';
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(40, 40, 40, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,10 Q50,0 70,10 L90,30 Q100,50 90,70 L70,90 Q50,100 30,90 L10,70 Q0,50 10,30 Z" fill="rgba(60, 60, 60, 0.3)" /></svg>');
+    background-size: cover, 100px 100px;
+    background-position: center, center;
+    background-repeat: no-repeat, repeat;
+    animation: backgroundShift 30s linear infinite;
+}
+@keyframes backgroundShift {
+    0% { background-position: center, 0 0; }
+    100% { background-position: center, 100px 100px; }
+}
+
+h1 {
+    color: white; /* Change text color */
+    margin-bottom: 20px; /* Spacing below the title */
+    font-family: Comfortaa;
+    font-size: 50px;
+}
+
+h2 {
+    color: white; /* Change text color */
+    margin-bottom: 20px; /* Spacing below the title */
+    font-family: Comfortaa;
+    font-size: 30px;
+}
+
+/* 4x4 board version */
+#board {
+    width: 323px;
+    height: 324px; 
+    border: 2px solid purple;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+#board img {
+    width: 79px;
+    height: 79px;
+    border: 0.5px solid lightblue;
+}
+
+
+#pieces {
+    width: 1048px;
+    height: 160px;
+    border: 2px solid purple;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#pieces img {
+    width: 79px;
+    height: 79px;
+    border: 0.5px solid lightblue;
+}
+
+/* Overlay to disable board interaction */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 10; /* Above all other content */
+}
+
+/* Question box styles */
+.question-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 20px;
+    background: white;
+    border: 2px solid purple;
+    z-index: 11; /* Above the overlay */
+    text-align: center;
+}
+
+#question-section h3 {
+    margin-bottom: 20px;
+}
+
+#options button {
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Star rating style */
+.star-rating {
+    font-size: 24px;
+    color: gold;
+    margin-top: 20px;
+}
+
+/* Overlay to disable board interaction */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    backdrop-filter: blur(8px); /* Modern blur effect */
+    z-index: 10; /* Above all other content */
+    opacity: 0; /* Initial hidden state for fade-in */
+    transition: opacity 0.5s ease; /* Smooth fade-in transition */
+}
+
+/* Question box styles */
+.question-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8); /* Initial smaller scale for animation */
+    width: 400px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow for modern look */
+    z-index: 11; /* Above the overlay */
+    text-align: center;
+    opacity: 0; /* Initial hidden state for fade-in */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth zoom and fade-in transition */
+}
+
+#question-section h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #333;
+}
+
+
+/* Options button styling */
+#options button {
+    margin: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #6200ea; /* Modern purple background */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Hover effects */
+}
+
+#options button:hover {
+    background-color: #4b00b5; /* Darker on hover */
+    transform: translateY(-3px); /* Subtle lift on hover */
+}
+
+#options button:active {
+    transform: scale(0.95); /* Shrink on click */
+}
+
+/* Explanation text */
+#explanation {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+    display: none;
+}

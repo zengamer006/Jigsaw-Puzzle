@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jigsaw Puzzle Game Instructions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Jigsaw Puzzle Game</h1>
+        
+        <div class="instruction">
+            <h2>Getting Started</h2>
+            <ol>
+                <li>Open the game to see a scrambled image divided into pieces.</li>
+                <li>Your task is to arrange the pieces to reconstruct the original image.</li>
+            </ol>
+        </div>
+        
+        <div class="instruction">
+            <h2>Playing the Game</h2>
+            <ol>
+                <li>Drag and drop puzzle pieces to rearrange them.</li>
+                <li>Answer the pop-up questions correctly to progress.</li>
+                <li>Connect matching pieces by placing them next to each other.</li>
+                <li>Continue until the image is completed.</li>
+            </ol>
+        </div>
+        
+        <div class="tip">
+            <h2>Tips for Success</h2>
+            <ul>
+                <li>Start with the edges to create a frame.</li>
+                <li>Group similar colors or patterns together.</li>
+                <li>Pay attention to the connectors' shapes.</li>
+                <li>Take breaks if you're stuck to get a fresh perspective.</li>
+            </ul>
+        </div>
+        
+        <div class="checkbox-container">
+            <input type="checkbox" id="understood">
+            <label for="understood">I have read and understood the instructions</label>
+        </div>
+        
+        <button id="startGame" disabled>Start Game</button>
+    </div>
+
+    <!-- Modal Overlay for Alerts -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <button id="closeModal">OK</button>
+        </div>
+    </div>
+
+    <!-- Link to external JS file -->
+    <script src="script.js"></script>
+</body>
+</html>

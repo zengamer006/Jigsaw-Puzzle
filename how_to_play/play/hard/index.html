@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jigsaw Puzzle</title>
+    <link rel="stylesheet" href="puzzle.css">
+    <script src="puzzle.js" defer></script>
+</head>
+<body>
+    <h1>Hard Mode</h1> <!-- Title added here -->
+    <br>
+    <div id="board"></div>
+    <h2>Turns: <span id="turns">0</span></h2>
+    <div id="pieces"></div>
+
+    <!-- Overlay to disable interaction with the board -->
+    <div id="overlay" style="display: none;"></div>
+
+    <!-- Question Section with a background box -->
+    <div id="question-section" class="question-box" style="display: none;">
+        <h3 id="question"></h3>
+        <div id="options"></div>
+        <p id="explanation" style="display: none;"></p>
+    </div>
+</body>
+</html>
