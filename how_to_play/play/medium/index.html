@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,125 @@
     <link rel="icon" type="image/png" sizes="192x192" href="logo/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="logo/android-chrome-512x512.png">
     <link rel="manifest" href="/logo/site.webmanifest">
+
+    <script>
+        "use strict";
+        !function () {
+            function detectDevTool(allow) {
+                if (isNaN(+allow)) allow = 100;
+                var start = +new Date();
+                debugger;
+                var end = +new Date();
+                if (isNaN(start) || isNaN(end) || end - start > allow) {
+                    consoleCheck();
+                }
+            }
+            if (window.attachEvent) {
+                if (document.readyState === "complete" || document.readyState === "interactive") {
+                    detectDevTool();
+                    window.attachEvent('onresize', detectDevTool);
+                    window.attachEvent('onmousemove', detectDevTool);
+                    window.attachEvent('onfocus', detectDevTool);
+                    window.attachEvent('onblur', detectDevTool);
+                    window.attachEvent('onkeydown', detectDevTool);
+                    window.attachEvent('onkeyup', detectDevTool);
+                    window.attachEvent('oncontextmenu', detectDevTool);
+                    window.attachEvent('onscroll', detectDevTool);
+                    window.attachEvent('onmousedown', detectDevTool);
+                    window.attachEvent('onmouseup', detectDevTool);
+                } else {
+                    setTimeout(arguments.callee, 0);
+                }
+            } else {
+                window.addEventListener('load', detectDevTool);
+                window.addEventListener('resize', detectDevTool);
+                window.addEventListener('mousemove', detectDevTool);
+                window.addEventListener('focus', detectDevTool);
+                window.addEventListener('blur', detectDevTool);
+                window.addEventListener('keydown', detectDevTool);
+                window.addEventListener('keyup', detectDevTool);
+                window.addEventListener('contextmenu', detectDevTool);
+                window.addEventListener('scroll', detectDevTool);
+                window.addEventListener('mousedown', detectDevTool);
+                window.addEventListener('mouseup', detectDevTool);
+            }
+        }();
+
+        // Prevent opening the console using keyboard shortcuts
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "F12" || (e.ctrlKey && (e.key === "u" || e.key === "s" || e.key === "i" || e.key === "c"))) {
+                e.preventDefault();
+            }
+        });
+
+        // Disable right-click context menu
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
+
+        // Disable copy and paste
+        document.addEventListener("copy", function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener("paste", function (e) {
+            e.preventDefault();
+        });
+
+        // Disable text selection
+        document.addEventListener("selectstart", function (e) {
+            e.preventDefault();
+        });
+
+        // Disable context menu and certain keyboard shortcuts
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' || (e.ctrlKey && (e.shiftKey && e.key === 'I'))) {
+                e.preventDefault();
+            }
+        });
+
+        // Disable copy (Ctrl+C), cut (Ctrl+X), and paste (Ctrl+V)
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'v')) {
+            e.preventDefault();
+        }
+
+        (function () {
+            const devtools = /./;
+            let devtoolsOpen = false; // Track if the dev tools are open
+
+            devtools.toString = function () {
+                devtoolsOpen = true; // Set flag to true if dev tools are opened
+                consoleCheck(); // Trigger when dev tools are open
+            };
+
+            setInterval(function () {
+                console.log('%c', devtools);
+                if (devtoolsOpen) {
+                    // Optional: if you want to do something when dev tools are open
+                    consoleCheck();
+                }
+            }, 1000);
+
+            function consoleCheck() {
+                if (devtoolsOpen) {
+                    alert('Please do not use Developer Tools!');
+                    // Optionally, redirect or hide content
+                    document.body.innerHTML = '<h1>Access Denied</h1>';
+                }
+            }
+        })();
+
+        function consoleCheck() {
+            document.querySelector('body').innerHTML = 'We strongly support not using the console for extra actions! Please Refresh the page to Restart';
+        }
+
+    </script>
 </head>
+
 <body>
     <h1>Medium Mode</h1> <!-- Title added here -->
     <br>
@@ -38,4 +157,5 @@
 
     <div id="timer">00:00</div>
 </body>
+
 </html>

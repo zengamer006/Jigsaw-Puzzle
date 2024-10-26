@@ -40,7 +40,7 @@ const facts = [
     "Forests absorb a third of CO₂ emissions.",
     "Species face extinction as habitats shift.",
     "Crop yields may drop 30% by 2050.",
-    "TheParis Agreement seeks a 1.5°C cap."
+    "The Paris Agreement seeks a 1.5°C cap."
 ];
 
 // Function to periodically display random facts in the fact-box
