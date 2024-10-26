@@ -15,6 +15,50 @@ var folderExplanations = {
     "images6": "A polar bear wanders through a barren landscape, highlighting the devastating impact of climate change on Arctic habitats."
 };
 
+const facts = [
+    "Arctic sea ice is declining at a rate of 13% per decade.",
+    "Polar bears are listed as a vulnerable species due to climate change.",
+    "The Arctic is warming twice as fast as the global average.",
+    "Polar bears primarily hunt seals from sea ice platforms.",
+    "Climate change is causing longer ice-free periods in the Arctic.",
+    "Polar bears can swim for long distances, but this uses a lot of energy.",
+    "The Arctic could be ice-free in summer by 2040.",
+    "Polar bears are considered marine mammals because they spend most of their time on sea ice.",
+    "Climate change affects the entire Arctic ecosystem, not just polar bears.",
+    "Reducing carbon emissions is crucial for protecting Arctic habitats.",
+    "Earth's temperature has risen 1.2°C since the 1800s.",
+    "Oceans absorb 90% of heat, raising sea levels.",
+    "The Arctic warms twice as fast, melting ice.",
+    "Deforestation adds 10% of greenhouse gases.",
+    "Extreme weather events are intensifying.",
+    "Renewable energy is key to climate action.",
+    "CO₂ levels are 50% higher than pre-industrial times.",
+    "Climate change could displace 1 billion by 2050.",
+    "Coral reefs face bleaching due to warm seas.",
+    "Melting glaciers raise global sea levels.",
+    "Air pollution and climate change are linked.",
+    "Forests absorb a third of CO₂ emissions.",
+    "Species face extinction as habitats shift.",
+    "Crop yields may drop 30% by 2050.",
+    "TheParis Agreement seeks a 1.5°C cap."
+];
+
+// Function to periodically display random facts in the fact-box
+function showFacts() {
+    const factTextElement = document.getElementById("fact-text");
+
+    function updateFact() {
+        // Select a random fact index
+        const randomIndex = Math.floor(Math.random() * facts.length);
+        // Show the selected random fact
+        factTextElement.innerText = facts[randomIndex];
+    }
+
+    // Initial random fact display and then update every 10 seconds
+    updateFact();
+    setInterval(updateFact, 10000); // Change fact every 10 seconds
+}
+
 // Add this function to check if the puzzle is complete
 function checkCompletion() {
     return correctPositions.every(position => position === true); // Ensure all positions are correct
@@ -265,9 +309,31 @@ var selectedFolder;
 // For tracking correct placement of pieces
 var correctPositions = Array(rows * columns).fill(false);
 
+// Initialize timer variables
+let seconds = 0;
+let minutes = 0;
+
+// Timer update function
+function updateTimer() {
+    seconds++;
+    if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+    }
+    const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    document.getElementById('timer').textContent = formattedTime;
+}
+
+// Start the timer with a 1-second interval
+const timerInterval = setInterval(updateTimer, 1000);
+
+// Function to stop the timer when the puzzle is completed (add your completion check logic)
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+
 window.onload = function() {
     selectedFolder = getRandomImageFolder();
-    console.log("Selected folder:", selectedFolder); // Log the selected folder
 
     // Initialize the 5x5 board
     for (let r = 0; r < rows; r++) {
@@ -311,8 +377,7 @@ window.onload = function() {
             console.error(`Failed to load image: ${tile.src}`);  // Log if image fails to load
         };
 
-        // Log the image path to verify if it's correct
-        console.log("Piece loaded from:", tile.src);
+
 
         tile.dataset.pieceNumber = pieces[i];
 
@@ -326,6 +391,9 @@ window.onload = function() {
 
         document.getElementById("pieces").append(tile);
     }
+    
+    // Start displaying facts
+    showFacts();
 }
 
 
