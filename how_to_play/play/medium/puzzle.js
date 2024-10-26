@@ -414,6 +414,9 @@ function dragDrop() {
     otherTile = this;
 }
 
+// Preload the placement sound
+const placementSound = new Audio('./src_assets_puzzle.wav');
+
 function dragEnd() {
     if (currTile.src.includes("blank")) {
         return;
@@ -435,6 +438,9 @@ function dragEnd() {
         // Lock the current tile to prevent further moves
         currTile.dataset.locked = "true"; // Lock the tile
         otherTile.dataset.locked = "true"; // Lock the other tile
+
+        // Play the placement sound
+        placementSound.play();
 
         turns += 1;
         document.getElementById("turns").innerText = turns;
